@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>e-Hiwacloy</title>
+
+<link rel="stylesheet" href="style.css">
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+/* =========================================================
+   MODAL
+========================================================= */
+
+.modal{
+    position: fixed;
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0;
+    pointer-events: none;
+
+    transition: 0.3s ease;
+
+    z-index: 9999;
+}
+
+.modal.show{
+    opacity: 1;
+    pointer-events: auto;
+}
+
+
+/* =========================================================
+   MODAL CONTENT
+========================================================= */
+
+.modal-content{
+
+    width: 100%;
+    height: 100%;
+
+    border-radius: 10px;
+
+    overflow: hidden;
+
+    transform: scale(0.92);
+
+    transition: 0.3s ease;
+}
+
+.modal.show .modal-content{
+    transform: scale(1);
+}
+
+
+/* =========================================================
+   PDF VIEWER
+========================================================= */
+
+.modal-content iframe{
+
+    width: 100%;
+    height: 100%;
+}
+
+
+/* =========================================================
+   IMAGE VIEWER
+========================================================= */
+
+.modal-content img{
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+}
+
+
+</style>
+
+</head>
+
+
+
+<body>
+<!-- ================= HEADER ================= -->
+<header class="header">
+    <div class="header-container">
+
+        <!-- LOGO -->
+        <div class="logo">
+            <img src="files/logo.png">
+            <div>
+                <h2>e-Hiwacloy</h2>
+                <p>Barangay Health Appointment System</p>
+            </div>
+        </div>
+
+        <!-- NAV -->
+        <nav class="nav">
+            <a href="index.html" class="active">Home</a>
+            <a href="gathering.html">Data Gathering</a>
+            <a href="results.html">Results</a>
+            <a href="guide.html">GUIDE</a>
+
+            <!-- DROPDOWN -->
+            <div class="dropdown" id="dropdownBtn">
+                More ▾
+                <div class="dropdown-menu" id="dropdownMenu">
+                    <a href="#">Reflection</a>
+                    <a href="#">Additional Findings</a>
+                    <a href="#">Prototype Walkthrough</a>
+                    <a href="#">Video Demonstration</a>
+                </div>
+            </div>
+
+            <!-- SEARCH -->
+            <i class="fa fa-search search-icon"></i>
+        </nav>
+
+    </div>
+</header>
+
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+    <div class="hero-container">
+        <div class="hero-text">
+            <h1>e-Hiwacloy</h1>
+            <h2>Your Health, Our Priority</h2>
+            <p>
+                A Barangay Health Appointment System <br>
+                of Hiwacloy, Goa, Camarines Sur
+            </p>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- ================= TEAM ================= -->
+<section class="team">
+
+    <div class="team-container">
+
+        <h2>Our Team</h2>
+
+        <p class="team-desc">
+    We are a dedicated team of BSIT 3C students committed to designing and developing 
+<strong>e-Hiwacloy</strong>, a user-friendly Barangay Health Appointment System that aims 
+to improve accessibility, efficiency, and convenience in community healthcare services. 
+        </p>
+
+        <!-- LEADER -->
+        <div class="leader-wrapper">
+            <div class="leader-card">
+                <img src="profiles/bonaga.png">
+                <h3>ANGEL LITO BOÑAGA</h3>
+                <p> <strong>202311640 / BSIT 3C</strong> </p>
+
+                <button class="btn" onclick="openModal('files/Dataset.pdf','pdf')">
+                <i class="fa fa-file"></i> Team Leader
+            </button>
+                <em>"You Can"</em>
+            </div>
+        </div>
+
+        <!-- MEMBERS -->
+        <div class="members">
+
+            <div class="card">
+                <img src="profiles/bono.png">
+                <h3>MAXIN JOY A. BONO</h3>
+                <p> <strong>202311641 / BSIT 3C</strong> </p>
+                <button class="role-btn"
+                    onclick="openModal('files/BonoContribution.pdf','pdf')">
+
+                    <i class="fa fa-file-pdf"></i>
+                    Team Member
+
+                </button>
+                <em>"Believe you can, and you will"</em>
+            </div>
+
+            <div class="card">
+                <img src="profiles/delamata.png">
+                <h3>JOHN REY T. DELA MATA</h3>
+                <p> <strong>202311663 / BSIT 3C</strong> </p>
+                <button class="role-btn"
+                    onclick="openModal('files/DelaMataContribution.pdf','pdf')">
+
+                    <i class="fa fa-file-pdf"></i>
+                    Team Member
+
+                </button>
+                <em>"Keep going and never give up"</em>
+            </div>
+
+            <div class="card">
+                <img src="profiles/devera.png">
+                <h3>CHRISTIAN DE VERA</h3>
+                <p> <strong>202311637 / BSIT 3C</strong> </p>
+                <button class="role-btn"
+                    onclick="openModal('files/DeVeraContribution.pdf','pdf')">
+
+                    <i class="fa fa-file-pdf"></i>
+                    Team Member
+
+                </button>
+                <em>"Stay positive, work hard, make it happen."</em>
+            </div>
+
+            <div class="card">
+                <img src="profiles/beltran.png">
+                <h3>JOHN JAKE BELTRAN</h3>
+                <p> <strong>202311633 / BSIT 3C</strong> </p>
+                <button class="role-btn"
+                    onclick="openModal('files/BeltranContribution.pdf','pdf')">
+
+                    <i class="fa fa-file-pdf"></i>
+                    Team Member
+
+                </button>
+                <em>"Dream big. Work hard.Stay focused"</em>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= MODAL ================= -->
+<div class="modal" id="modalViewer">
+    <div class="modal-content" id="modalContent"></div>
+</div>
+
+
+<!-- ================= FOOTER ================= -->
+<footer>
+        Established by e-Hiwacloy Team @ 2026
+</footer>
+
+
+<script>
+
+function openModal(file, type) {
+
+    const modal =
+    document.getElementById("modalViewer");
+
+    const content =
+    document.getElementById("modalContent");
+
+    /* CLEAR OLD CONTENT */
+    content.innerHTML = "";
+
+    /* IMAGE */
+    if(type === "image"){
+
+        content.innerHTML = `
+            <img src="${file}" alt="Preview Image">
+        `;
+    }
+
+    /* PDF */
+    else if(type === "pdf"){
+
+        content.innerHTML = `
+            <iframe
+                src="${file}#toolbar=1&navpanes=0&scrollbar=1"
+                frameborder="0">
+            </iframe>
+        `;
+    }
+
+    /* SHOW MODAL */
+    modal.classList.add("show");
+}
+
+
+/* CLOSE WHEN CLICKING OUTSIDE */
+document
+.getElementById("modalViewer")
+.addEventListener("click", function(e){
+
+    if(e.target.id === "modalViewer"){
+
+        closeModal();
+
+    }
+
+});
+
+
+/* CLOSE MODAL */
+function closeModal(){
+
+    const modal =
+    document.getElementById("modalViewer");
+
+    const content =
+    document.getElementById("modalContent");
+
+    modal.classList.remove("show");
+
+    setTimeout(() => {
+
+        content.innerHTML = "";
+
+    }, 300);
+
+}
+
+</script>
+
+
+</body>
+</html>
