@@ -1,0 +1,1317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Data Gathering</title>
+
+<link rel="stylesheet" href="style.css">
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+/* =========================================================
+   MODAL OVERLAY
+========================================================= */
+
+.modal{
+
+    position: fixed;
+    inset: 0;
+
+    background: rgba(0,0,0,0.82);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0;
+    pointer-events: none;
+
+    transition: 0.3s ease;
+
+    z-index: 9999;
+
+    backdrop-filter: blur(5px);
+}
+
+.modal.show{
+    opacity: 1;
+    pointer-events: auto;
+}
+
+
+
+/* =========================================================
+   BASE MODAL CONTENT
+========================================================= */
+
+.modal-content{
+
+    animation: zoomIn 0.3s ease;
+}
+
+
+
+/* =========================================================
+   IMAGE MODE
+========================================================= */
+
+.image-mode{
+
+    background: transparent;
+
+    width: auto;
+    height: auto;
+
+    padding: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image-mode img{
+
+    width: auto;
+    height: auto;
+
+    max-width: 95vw;
+    max-height: 95vh;
+
+    object-fit: contain;
+
+    border-radius: 18px;
+
+    display: block;
+
+    box-shadow:
+    0 10px 35px rgba(0,0,0,0.45);
+}
+
+
+
+/* =========================================================
+   PDF MODE
+========================================================= */
+
+.pdf-mode{
+
+    width: 95vw;
+    height: 95vh;
+
+    background: #f5f5f5;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    box-shadow:
+    0 15px 40px rgba(0,0,0,0.4);
+}
+
+.pdf-mode iframe{
+
+    width: 100%;
+    height: 100%;
+
+    border: none;
+}
+
+
+
+/* =========================================================
+   ANIMATION
+========================================================= */
+
+@keyframes zoomIn{
+
+    from{
+        transform: scale(0.92);
+        opacity: 0;
+    }
+
+    to{
+        transform: scale(1);
+        opacity: 1;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+<header class="header">
+    <div class="header-container">
+
+        <div class="logo">
+            <img src="files/logo.png">
+            <div>
+                <h2>e-Hiwacloy</h2>
+                <p>Barangay Health Appointment System</p>
+            </div>
+        </div>
+
+        <nav class="nav">
+            <a href="index.html">Home</a>
+            <a href="gathering.html" class="active">Data Gathering</a>
+            <a href="results.html">Results</a>
+            <a href="guide.html">GUIDE</a>
+            
+
+
+            <div class="dropdown" id="dropdownBtn">
+                More ▾
+                <div class="dropdown-menu" id="dropdownMenu">
+                    <a href="#">Reflection</a>
+                    <a href="#">Additional Findings</a>
+                    <a href="#">Prototype Walkthrough</a>
+                    <a href="#">Video Demonstration</a>
+                </div>
+            </div>
+
+            <i class="fa fa-search search-icon"></i>
+        </nav>
+
+    </div>
+</header>
+
+
+<!-- ================= HERO ================= -->
+<section class="hero small-hero">
+    <div class="hero-container">
+        <div class="hero-text">
+            <h1>Data Gathering</h1>
+            <p>
+                This section contains the essential data and documentation <br> 
+                gathered throughout the evaluation and usability testing <br>
+                of the e-Hiwacloy system.
+            </p>
+        </div>
+    </div>
+</section>
+
+
+<!-- ================= DATA SECTION ================= -->
+<section class="data-section">
+    <div class="data-container">
+
+        <!-- 01 CONSENT -->
+        <div class="data-card">
+            <div class="card-header">
+                <span class="number">01</span>
+                <h3>Consent Form</h3>
+            </div>
+
+            <p>
+                Signed consent forms from participants acknowledging their
+                willingness to participate in the study.
+            </p>
+
+            <button class="btn" onclick="openModal('files/Consent Form.pdf','pdf')">
+                <i class="fa fa-file"></i> View Consent Forms
+            </button>
+        </div>
+
+
+        <!-- 02 RESPONDENTS -->
+        <div class="data-card">
+            <div class="card-header">
+                <span class="number">02</span>
+                <h3>Respondents Information</h3>
+            </div>
+
+            <p>
+                Summary or profile of the participants who took part
+                in the usability testing and evaluation.
+            </p>
+
+            <button class="btn" onclick="openModal('files/Respondents Information.pdf','pdf')">
+                <i class="fa fa-user"></i> View Respondents Profile
+            </button>
+        </div>
+
+
+
+
+
+
+
+        <!-- ================= RESPONDENTS VISUALIZATION ================= -->
+
+<div class="data-card wide">
+
+    <!-- HEADER -->
+    <div class="card-header">
+
+        <span class="number">03</span>
+
+        <h3>Respondents Visualization Dashboard</h3>
+
+    </div>
+
+    <p class="dashboard-desc">
+
+        Visual summary of the respondents’
+        demographic profile, similar systems' experience, technology usage,
+        and sampling method used in the study.
+
+    </p>
+
+
+
+    <!-- ================================================= -->
+    <!-- OVERVIEW CARDS -->
+    <!-- ================================================= -->
+
+    <div class="stats-grid">
+
+        <div class="stat-card">
+
+            <i class="fa fa-users"></i>
+
+            <h2>67</h2>
+
+            <p>Total Population</p>
+
+        </div>
+
+        <div class="stat-card">
+
+            <i class="fa fa-user-check"></i>
+
+            <h2>40</h2>
+
+            <p>Sample Size</p>
+
+        </div>
+
+        <div class="stat-card">
+
+            <i class="fa fa-graduation-cap"></i>
+
+            <h2>BSED-VE</h2>
+
+            <p>Respondents Program</p>
+
+        </div>
+
+        <div class="stat-card">
+
+            <i class="fa fa-calculator"></i>
+
+            <h2>Slovin</h2>
+
+            <p>Sampling Method</p>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ================================================= -->
+    <!-- FIRST ROW -->
+    <!-- ================================================= -->
+
+    <div class="chart-grid">
+
+        <!-- AGE -->
+        <div class="chart-card">
+
+            <h4>Age Distribution</h4>
+
+            <canvas id="ageChart"></canvas>
+
+        </div>
+
+        <!-- GENDER -->
+        <div class="chart-card">
+
+            <h4>Gender Distribution</h4>
+
+            <canvas id="genderChart"></canvas>
+
+        </div>
+
+    </div>
+
+    <!-- ================================================= -->
+    <!-- SECONED ROW -->
+    <!-- ================================================= -->
+
+    <div class="chart-grid">
+
+        <!-- PROGRAM -->
+        <div class="chart-card">
+
+            <h4>Program Distribution</h4>
+
+            <canvas id="programChart"></canvas>
+
+        </div>
+
+        <!-- YEAR LEVEL -->
+        <div class="chart-card">
+
+            <h4>Year Level Distribution</h4>
+
+            <canvas id="yearChart"></canvas>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ================================================= -->
+    <!-- THIRD ROW -->
+    <!-- ================================================= -->
+
+    <div class="chart-grid">
+
+        <!-- EXPERIENCE -->
+        <div class="chart-card">
+
+            <h4>Experience with Similar Systems</h4>
+
+            <canvas id="experienceChart"></canvas>
+
+        </div>
+
+        <!-- TECHNOLOGY -->
+        <div class="chart-card">
+
+            <h4>Frequency of Technology Use</h4>
+
+            <canvas id="technologyChart"></canvas>
+
+        </div>
+
+    </div>
+
+
+
+    
+
+
+
+    <!-- ================================================= -->
+    <!-- SLOVIN FORMULA -->
+    <!-- ================================================= -->
+
+    <div class="slovin-card">
+
+        <!-- LEFT -->
+        <div class="slovin-left">
+
+            <h3>Sampling Method (Slovin’s Formula)</h3>
+
+            <div class="formula">
+
+                n = N / (1 + Ne²)
+
+            </div>
+
+            <div class="formula-details">
+
+                <div>
+
+                    <strong>N</strong>
+
+                    <p>Population Size</p>
+
+                </div>
+
+                <div>
+
+                    <strong>e</strong>
+
+                    <p>Margin of Error</p>
+
+                </div>
+
+                <div>
+
+                    <strong>n</strong>
+
+                    <p>Sample Size</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- RIGHT -->
+        <div class="slovin-right">
+
+            <div class="sample-result">
+
+                <h1>40</h1>
+
+                <p><strong>Computed Sample Size</strong></p>
+
+                <button class="view-btn">
+                    View Computation
+                </button>
+
+                <div class="computation-box">
+
+                    <h4>Slovin’s Formula Computation</h4>
+
+                    <p>n = N / (1 + Ne²)</p>
+
+                    <p>n = 67 / (1 + 67(0.10²))</p>
+
+                    <p>n = 67 / (1 + 67(0.01))</p>
+
+                    <p>n = 67 / 1.67</p>
+
+                    <p><strong>n = 40 Sample Size</strong></p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ================= CHART JS ================= -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+
+/* ================= AGE ================= */
+
+new Chart(document.getElementById('ageChart'), {
+
+    type: 'bar',
+
+    data: {
+
+        labels: [
+            '18 Years old',
+            '19 Years old',
+            '20 Years old',
+            '21 Years old',
+            '22 Years old'
+        ],
+
+        datasets: [{
+
+            label: 'Respondents',
+
+            data: [5, 11, 16, 6, 2],
+
+            percentages: [12.5, 27.5, 40, 15, 5],
+
+            backgroundColor: '#2ecc71',
+
+            borderRadius: 10
+
+        }]
+    },
+
+    options: {
+
+        responsive: true,
+
+        plugins: {
+
+            legend: {
+                display: false
+            },
+
+            tooltip: {
+
+                callbacks: {
+
+                    label: function(context) {
+
+                        const respondents = context.dataset.data[context.dataIndex];
+                        const percentage = context.dataset.percentages[context.dataIndex];
+
+                        return `Respondents: ${respondents} (${percentage}%)`;
+                    }
+                }
+            }
+        },
+
+        scales: {
+
+            x: {
+
+                ticks: {
+                    color: '#000'
+                },
+
+                title: {
+                    display: true,
+                    text: 'Age Range',
+                    color: '#000',
+                    font: {
+                        size: 16,
+                        weight: 'normal'
+                    }
+                }
+
+            },
+
+            y: {
+
+                beginAtZero: true,
+
+                max: 20,
+
+                ticks: {
+                    color: '#000'
+                },
+
+                title: {
+                    display: true,
+                    text: 'Number of Respondents',
+                    color: '#000',
+                    font: {
+                        size: 16,
+                        weight: 'normal'
+                    }
+                }
+
+            }
+
+        }
+    }
+});
+
+/* ================= GENDER PIE ================= */
+
+new Chart(document.getElementById('genderChart'), {
+
+    type: 'pie',
+
+    data: {
+
+        labels: ['Male Student', 'Female Student'],
+
+        datasets: [{
+
+            label: 'Respondents',
+
+            data: [16, 24],
+
+            percentages: [40, 60],
+
+            backgroundColor: [
+                '#27ae60',
+                '#d4f5df'
+            ]
+
+        }]
+    },
+
+    options: {
+
+        responsive: true,
+
+        plugins: {
+
+            legend: {
+
+                labels: {
+                    color: '#000',
+                    font: {
+                        size: 14,
+                        weight: 'normal'
+                    }
+                }
+
+            },
+
+            tooltip: {
+
+                callbacks: {
+
+                    label: function(context) {
+
+                        const respondents = context.dataset.data[context.dataIndex];
+                        const percentage = context.dataset.percentages[context.dataIndex];
+
+                        return `Respondents: ${respondents} (${percentage}%)`;
+                    }
+                }
+            }
+        }
+    }
+});
+
+
+/* ================= PROGRAM DISTRIBUTION ================= */
+
+new Chart(document.getElementById('programChart'), {
+
+    type: 'bar',
+
+    data: {
+
+        labels: [
+            'BSED-ENTREP',
+            'BSED-VE',
+            'BSED-FIL',
+            'BSED-MATH'
+        ],
+
+        datasets: [{
+
+            label: 'Respondents',
+
+            data: [4, 28, 2, 6],
+
+            percentages: [10, 70, 5, 15],
+
+            backgroundColor: [
+                '#2ecc71',
+            ],
+
+            borderRadius: 10
+
+        }]
+    },
+
+    options: {
+
+        responsive: true,
+
+        plugins: {
+
+            legend: {
+                display: false
+            },
+
+            tooltip: {
+
+                callbacks: {
+
+                    label: function(context) {
+
+                        const respondents = context.dataset.data[context.dataIndex];
+                        const percentage = context.dataset.percentages[context.dataIndex];
+
+                        return `Respondents: ${respondents} (${percentage}%)`;
+                    }
+                }
+            }
+        },
+
+        scales: {
+
+            x: {
+
+                ticks: {
+                    color: '#000'
+                },
+
+                title: {
+                    display: true,
+                    text: 'Programs',
+                    color: '#000',
+                    font: {
+                        size: 16,
+                        weight: 'normal'
+                    }
+                }
+
+            },
+
+            y: {
+
+                beginAtZero: true,
+
+                max: 30,
+
+                ticks: {
+                    color: '#000'
+                },
+
+                title: {
+                    display: true,
+                    text: 'Number of Respondents',
+                    color: '#000',
+                    font: {
+                        size: 16,
+                        weight: 'normal'
+                    }
+                }
+
+            }
+
+        }
+    }
+});
+
+
+
+/* ================= YEAR LEVEL ================= */
+
+new Chart(document.getElementById('yearChart'), {
+
+    type: 'pie',
+
+    data: {
+
+        labels: [
+            'First Year',
+            'Second Year',
+            'Third Year'
+        ],
+
+        datasets: [{
+
+            label: 'Respondents',
+
+            data: [7, 26, 7],
+
+            percentages: [17.5, 65, 17.5],
+
+            backgroundColor: [
+                '#157347',
+                '#2ecc71',
+                '#b7eac8'
+            ]
+
+        }]
+    },
+
+    options: {
+
+        responsive: true,
+
+        plugins: {
+
+            legend: {
+
+                labels: {
+                    color: '#000',
+                    font: {
+                        size: 14,
+                        weight: 'normal'
+                    }
+                }
+
+            },
+
+            tooltip: {
+
+                callbacks: {
+
+                    label: function(context) {
+
+                        const respondents = context.dataset.data[context.dataIndex];
+                        const percentage = context.dataset.percentages[context.dataIndex];
+
+                        return `Respondents: ${respondents} (${percentage}%)`;
+                    }
+                }
+            }
+        }
+    }
+});
+
+
+
+/* ================= EXPERIENCE ================= */
+
+new Chart(document.getElementById('experienceChart'), {
+
+    type: 'doughnut',
+
+    data: {
+
+        labels: ['Yes', 'No'],
+
+        datasets: [{
+
+            label: 'Respondents',
+
+            data: [19, 21],
+
+            percentages: [47.5, 52.5],
+
+            backgroundColor: [
+                '#2ecc71',
+                '#27ae60'
+            ]
+
+        }]
+    },
+
+    options: {
+
+        responsive: true,
+
+        plugins: {
+
+            legend: {
+
+                labels: {
+                    color: '#000',
+                    font: {
+                        size: 14,
+                        weight: 'normal'
+                    }
+                }
+
+            },
+
+            tooltip: {
+
+                callbacks: {
+
+                    label: function(context) {
+
+                        const respondents = context.dataset.data[context.dataIndex];
+                        const percentage = context.dataset.percentages[context.dataIndex];
+
+                        return `Respondents: ${respondents} (${percentage}%)`;
+                    }
+                }
+            }
+        }
+    }
+});
+
+
+
+/* ================= TECHNOLOGY USE ================= */
+
+new Chart(document.getElementById('technologyChart'), {
+
+    type: 'doughnut',
+
+    data: {
+
+        labels: [
+            'Daily',
+            'Weekly',
+            'Monthly',
+            'Rarely'
+        ],
+
+        datasets: [{
+
+            label: 'Respondents',
+
+            data: [37, 1, 1, 1],
+
+            percentages: [92.5, 2.5, 2.5, 2.5],
+
+            backgroundColor: [
+                '#2ecc71',
+                '#27ae60',
+                '#157347',
+                '#d4f5df'
+            ]
+
+        }]
+
+    },
+
+    options: {
+
+        responsive: true,
+
+        plugins: {
+
+            legend: {
+
+                labels: {
+                    color: '#000',
+                    font: {
+                        size: 14,
+                        weight: 'normal'
+                    }
+                }
+
+            },
+
+            tooltip: {
+
+                callbacks: {
+
+                    label: function(context) {
+
+                        const respondents = context.dataset.data[context.dataIndex];
+                        const percentage = context.dataset.percentages[context.dataIndex];
+
+                        return `Respondents: ${respondents} (${percentage}%)`;
+                    }
+                }
+            }
+        }
+    }
+});
+
+
+
+</script>
+
+        <!-- 03 SURVEY -->
+        <div class="data-card wide">
+            <div class="card-header">
+                <span class="number">03</span>
+                <h3>Survey Instruments</h3>
+            </div>
+
+            <p class="dashboard-desc">
+
+                MAXIN JOY BONO
+
+            </p>
+
+
+            <div class="instrument-grid">
+
+                <div class="mini-card">
+                    <i class="fa fa-search"></i>
+                    <h4>Heuristic Evaluation Workbook</h4>
+                    <p>Evaluation based on usability principles.</p>
+                    <button class="mini-btn" onclick="openModal('files/Heuristic Evaluation Workbook.pdf','pdf')">View</button>
+                </div>
+
+                <div class="mini-card">
+                    <i class="fa fa-list"></i>
+                    <h4>SUS Questionnaire</h4>
+                    <p>Measures usability using a Likert scale.</p>
+                    <button class="mini-btn" onclick="openModal('files/SUS Questionnaire.pdf','pdf')">View</button>
+                </div>
+
+                <div class="mini-card">
+                    <i class="fa fa-tasks"></i>
+                    <h4>Task Scenarios</h4>
+                    <p>Used to evaluate efficiency and usability.</p>
+                    <button class="mini-btn" onclick="openModal('files/Task and Scenarios.pdf','pdf')">View</button>
+                </div>
+
+
+            </div>
+        </div>
+
+
+        <!-- 04 DOCUMENTATION -->
+        <div class="data-card wide">
+            <div class="card-header">
+                <span class="number">04</span>
+                <h3>Documentation</h3>
+            </div>
+
+            <p class="dashboard-desc">
+
+                MAXIN JOY BONO
+
+            </p>
+            
+            <div class="doc-grid">
+
+                <div class="doc-item" onclick="openModal('documentation/doc0.jpg','image')">
+                    <img src="documentation/doc0.jpg">
+                    <p>Group Pictures</p>
+                </div>
+
+                <div class="doc-item" onclick="openModal('documentation/doc1.jpg','image')">
+                    <img src="documentation/doc1.jpg">
+                    <p>Creating a consent form</p>
+                </div>
+
+                <div class="doc-item" onclick="openModal('documentation/doc2.jpg','image')">
+                    <img src="documentation/doc2.jpg">
+                    <p>Finalizing the system prototype</p>
+                </div>
+
+                <div class="doc-item" onclick="openModal('documentation/doc3.jpg','image')">
+                    <img src="documentation/doc3.jpg">
+                    <p>Venue Preparation for data gathering</p>
+                </div>
+
+                <div class="doc-item" onclick="openModal('documentation/doc4.jpg','image')">
+                    <img src="documentation/doc4.jpg">
+                    <p>Giving instructions to the respondents</p>
+                </div>
+
+                <div class="doc-item" onclick="openModal('documentation/doc5.jpg','image')">
+                    <img src="documentation/doc5.jpg">
+                    <p>Survey questionnaire distribution</p>
+                </div>
+
+                <div class="doc-item" onclick="openModal('documentation/doc6.jpg','image')">
+                    <img src="documentation/doc6.jpg">
+                    <p>The respondents exploring the system</p>
+                </div>
+
+                <div class="doc-item" onclick="openModal('documentation/doc7.jpg','image')">
+                    <img src="documentation/doc7.jpg">
+                    <p>The respondents doing the task & scenario</p>
+                </div>
+
+                <div class="doc-item" onclick="openModal('documentation/doc8.jpg','image')">
+                    <img src="documentation/doc8.jpg">
+                    <p>The respondents asking about the system</p>
+                </div>
+
+                <div class="doc-item" onclick="openModal('documentation/doc9.jpg','image')">
+                    <img src="documentation/doc9.jpg">
+                    <p>The respondents talking about the system</p>
+                </div>
+
+                <div class="doc-item" onclick="openModal('documentation/doc10.jpg','image')">
+                    <img src="documentation/doc10.jpg">
+                    <p>The respondents evaluating the system</p>
+                </div>
+
+                <div class="doc-item" onclick="openModal('documentation/doc11.jpg','image')">
+                    <img src="documentation/doc11.jpg">
+                    <p>Answering the survey questionnaire </p>
+                </div>
+
+                <div class="doc-item" onclick="openModal('documentation/doc12.jpg','image')">
+                    <img src="documentation/doc12.jpg">
+                    <p>Respondents giving their feedback about the system</p>
+                </div>
+
+                <div class="doc-item" onclick="openModal('documentation/doc13.jpg','image')">
+                    <img src="documentation/doc13.jpg">
+                    <p>Respondents giving their recomendations about the system</p>
+                </div>
+
+                <div class="doc-item" onclick="openModal('documentation/doc14.jpg','image')">
+                    <img src="documentation/doc14.jpg">
+                    <p>The respondents completing their task and scenarios</p>
+                </div>
+
+                <div class="doc-item" onclick="openModal('documentation/doc15.jpg','image')">
+                    <img src="documentation/doc15.jpg">
+                    <p>Collecting the survey questionnaire</p>
+                </div>
+
+                <div class="doc-item" onclick="openModal('documentation/doc16.jpg','image')">
+                    <img src="documentation/doc16.jpg">
+                    <p>Transfering the respondents' responses to the spreadsheet</p>
+                </div>
+
+                <div class="doc-item" onclick="openModal('documentation/doc17.jpg','image')">
+                    <img src="documentation/doc17.jpg">
+                    <p>Computing the respondents' responses using the SUS scale</p>
+                </div>
+
+                <div class="doc-item" onclick="openModal('documentation/doc18.jpg','image')">
+                    <img src="documentation/doc18.jpg">
+                    <p>Summarizing the respondents' feedcak and recomendations</p>
+                </div>
+
+                <div class="doc-item" onclick="openModal('documentation/doc19.jpg','image')">
+                    <img src="documentation/doc19.jpg">
+                    <p>Creating a web reporting site</p>
+                </div>
+
+                <div class="doc-item" onclick="openModal('documentation/doc20.jpg','image')">
+                    <img src="documentation/doc20.jpg">
+                    <p>Finalizing the documentation</p>
+                </div>
+
+                <div class="doc-item" onclick="openModal('documentation/doc21.jpg','image')">
+                    <img src="documentation/doc21.jpg">
+                    <p>Creating a prototype walkthrough</p>
+                </div>
+
+                <div class="doc-item" onclick="openModal('documentation/doc22.jpg','image')">
+                    <img src="documentation/doc22.jpg">
+                    <p>Creating a video demonstration</p>
+                </div>
+
+                <div class="doc-item" onclick="openModal('documentation/doc23.jpg','image')">
+                    <img src="documentation/doc23.jpg">
+                    <p>Finalizing the web reporting site</p>
+                </div>
+
+                
+
+                
+                 
+
+               
+ 
+
+ 
+
+            </div>
+        
+        <!-- SUPPORTING DOCCUMENTS -->
+        <div class="data-card wide">
+            <div class="card-header">
+                <h3>Supporting Doccument</h3>
+            </div>
+
+            <p class="dashboard-desc">
+
+                MAXIN JOY BONO
+
+            </p>
+
+            <div class="instrument-grid">
+
+                <div class="mini-card">
+    <i class="fa fa-file-lines"></i>
+    <h4>Survey Response Records</h4>
+    <p>Complete PDF compilation of respondents’ answers gathered
+    during the usability testing and evaluation process.</p>
+
+    <button class="mini-btn"
+    onclick="openModal('files/Response Record.pdf','pdf')">
+    Read PDF
+    </button>
+</div>
+
+<div class="mini-card">
+
+    <i class="fa fa-file-pdf"></i>
+
+    <h4>Raw Response Dataset</h4>
+
+    <p>
+        Spreadsheet containing the organized raw data,
+        computed results, and respondents’ evaluation records.
+    </p>
+
+    <button class="mini-btn"
+    onclick="openModal('files/Dataset.pdf','pdf')">
+
+        Open Dataset
+
+    </button>
+
+</div>
+
+<div class="mini-card">
+    <i class="fa fa-book-open"></i>
+    <h4>HCI2 Final Project Guide</h4>
+    <p>Official Human-Computer Interaction project guidelines
+    used as reference in developing the e-Hiwacloy system.</p>
+
+    <button class="mini-btn"
+    onclick="openModal('files/Guide.pdf','pdf')">
+    View
+    </button>
+</div>
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- ================= MODAL ================= -->
+<div class="modal" id="modalViewer">
+    <div class="modal-content" id="modalContent"></div>
+</div>
+
+
+<!-- ================= FOOTER ================= -->
+<footer>
+    Established by e-Hiwacloy Team @ 2026
+</footer>
+
+
+<script>
+
+function openModal(file, type) {
+
+    const modal =
+    document.getElementById("modalViewer");
+
+    const content =
+    document.getElementById("modalContent");
+
+    /* CLEAR */
+    content.innerHTML = "";
+
+
+
+    /* ================= IMAGE ================= */
+
+    if(type === "image"){
+
+        content.className =
+        "modal-content image-mode";
+
+        content.innerHTML = `
+            <img src="${file}" alt="Preview Image">
+        `;
+    }
+
+
+
+    /* ================= PDF ================= */
+
+    else if(type === "pdf"){
+
+        content.className =
+        "modal-content pdf-mode";
+
+        content.innerHTML = `
+            <iframe
+            src="${file}#toolbar=1&navpanes=0&scrollbar=1">
+            </iframe>
+        `;
+    }
+
+
+
+    /* SHOW */
+    modal.classList.add("show");
+}
+
+
+
+/* CLOSE WHEN CLICK OUTSIDE */
+
+document
+.getElementById("modalViewer")
+.addEventListener("click", function(e){
+
+    if(e.target.id === "modalViewer"){
+
+        closeModal();
+
+    }
+
+});
+
+
+
+/* CLOSE MODAL */
+
+function closeModal(){
+
+    const modal =
+    document.getElementById("modalViewer");
+
+    modal.classList.remove("show");
+
+}
+
+</script>
+
+</body>
+</html>
